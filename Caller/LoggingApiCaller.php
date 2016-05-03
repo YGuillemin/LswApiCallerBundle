@@ -59,9 +59,7 @@ class LoggingApiCaller implements ApiCallerInterface
                 $this->engine = new Curl();
             }
         } else {
-            if ($this->freshConnect || $this->engine == null || !($this->engine instanceof \SoapClient)) {
-                $this->engine = new \SoapClient($call->getUrl());
-            }
+            $this->engine = new \SoapClient($call->getUrl());
         }
 
         if ($this->logger) {
